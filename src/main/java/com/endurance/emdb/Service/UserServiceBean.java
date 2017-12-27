@@ -3,7 +3,7 @@ package com.endurance.emdb.Service;
 import com.endurance.emdb.Model.User;
 import com.endurance.emdb.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,10 +13,12 @@ import java.util.List;
 @Service
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 public class UserServiceBean implements UserService{
-
-    @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    public void setUserRepository (UserRepository userRepository){
+        this.userRepository = userRepository;
+    }
 
     @Override
     public List<User> getAllUsers() {
@@ -34,7 +36,7 @@ public class UserServiceBean implements UserService{
         if (user.getId() != 0){
             return null;
         }
-        user.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
+//        user.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
         return userRepository.save(user);
     }
 
@@ -50,7 +52,7 @@ public class UserServiceBean implements UserService{
         userToUpdate.setEmailId(user.getEmailId());
         userToUpdate.setUsername(user.getUsername());
         userToUpdate.setPassword(user.getPassword());
-        userToUpdate.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
+//        userToUpdate.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
         return userRepository.save(user);
     }
 
@@ -72,9 +74,9 @@ public class UserServiceBean implements UserService{
             return false;
         }
 
-        if (! new BCryptPasswordEncoder().matches(password, userToLogin.getPassword())){
-            return false;
-        }
+//        if (! new BCryptPasswordEncoder().matches(password, userToLogin.getPassword())){
+//            return false;
+//        }
         return true;
     }
 }

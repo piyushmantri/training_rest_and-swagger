@@ -2,6 +2,8 @@ package com.endurance.emdb.Controller;
 
 import com.endurance.emdb.Model.User;
 import com.endurance.emdb.Service.UserService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -14,11 +16,13 @@ import java.util.List;
 
 @Controller
 @RequestMapping("user")
+@Api(value="User Controller", description="User related all operations")
 public class UserController {
 
     @Autowired
     private UserService userService;
 
+    @ApiOperation(value = "Get All Users")
     @GetMapping(value = "", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<User>> getAllUsers(){
         List<User> users = userService.getAllUsers();
@@ -56,5 +60,9 @@ public class UserController {
     public ResponseEntity<Void> deleteUser(@PathVariable("id") int id){
         userService.deleteUser(id);
         return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
+    }
+
+    public void setUserService(UserService userService) {
+        this.userService = userService;
     }
 }
