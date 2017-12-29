@@ -81,10 +81,10 @@ public class UserControllerTest {
 
     @Test
     public void getUserById() throws Exception {
-        //what to do when controller is called
+        //what to do when service is called (mock the response of the service)
         Mockito.when(userService.getUserById(Mockito.anyInt())).thenReturn(mockUser1);
 
-        //build a request //contains url to call along with what type of content controller accepts
+        //build a request (contains url to call along with what type of content controller accepts)
         RequestBuilder requestBuilder = MockMvcRequestBuilders.get("/user/1");
 
         //mockMvc performs the request

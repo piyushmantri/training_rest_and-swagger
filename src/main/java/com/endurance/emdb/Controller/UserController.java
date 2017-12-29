@@ -32,13 +32,13 @@ public class UserController {
     @GetMapping(value = "{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<User> getUserById(@PathVariable("id") int id){
         User user = userService.getUserById(id);
-        return new ResponseEntity<User>(user, HttpStatus.OK);
+        return (user == null) ? new ResponseEntity<User>(HttpStatus.NOT_FOUND) : new ResponseEntity<User>(user, HttpStatus.OK);
     }
 
     @PostMapping(value = "", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<User> createUser(@RequestBody User user){
         User createdUser = userService.createUser(user);
-        return new ResponseEntity<User>(createdUser, HttpStatus.CREATED);
+        return (createdUser == null) ? new ResponseEntity<User>(HttpStatus.NOT_ACCEPTABLE) : new ResponseEntity<User>(createdUser, HttpStatus.CREATED) ;
     }
 
     @PostMapping(value = "/login", produces = MediaType.APPLICATION_JSON_VALUE)

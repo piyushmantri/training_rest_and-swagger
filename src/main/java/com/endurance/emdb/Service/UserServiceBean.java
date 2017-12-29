@@ -33,7 +33,10 @@ public class UserServiceBean implements UserService{
     @Override
     @Transactional(propagation = Propagation.REQUIRED, readOnly = false)
     public User createUser(User user) {
-        if (user.getId() != 0){
+        if (user.getId() != 0 ||
+                user.getPassword() == null ||
+                user.getEmailId() == null ||
+                user.getUsername() == null ){
             return null;
         }
 //        user.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));

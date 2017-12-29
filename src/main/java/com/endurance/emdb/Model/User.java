@@ -5,6 +5,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 //import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.sql.Timestamp;
 
 @Entity
@@ -23,12 +24,15 @@ public class User {
     private String lastName;
 
     @Column(name = "username")
+    @NotNull
     private String username;
 
     @Column(name = "email")
+    @NotNull
     private String emailId;
 
     @Column(name = "password")
+    @NotNull
     private String password;
 
     @CreationTimestamp
