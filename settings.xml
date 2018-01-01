@@ -210,7 +210,7 @@ under the License.
           <repositories>
             <repository>
               <id>jdk14</id>
-              <name>Repository for JDK 1.4 builds</name>
+              <name>repository for JDK 1.4 builds</name>
               <url>http://www.myhost.com/maven/jdk14</url>
               <layout>default</layout>
               <snapshotPolicy>always</snapshotPolicy>

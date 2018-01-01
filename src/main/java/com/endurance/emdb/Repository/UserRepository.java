@@ -1,6 +1,6 @@
-package com.endurance.emdb.Repository;
+package com.endurance.emdb.repository;
 
-import com.endurance.emdb.Model.User;
+import com.endurance.emdb.model.User;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

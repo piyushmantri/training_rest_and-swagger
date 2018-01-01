@@ -1,2 +1,2 @@
-com\endurance\emdb\controller\UserControllerTest.class
-com\endurance\emdb\repository\UserRepositoryTest.class
+com\endurance\emdb\service\UserServiceTest.class
+com\endurance\emdb\controller\UserControllerTests.class

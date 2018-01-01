@@ -1,8 +1,7 @@
 package com.endurance.emdb.controller;
 
-import com.endurance.emdb.Controller.UserController;
-import com.endurance.emdb.Model.User;
-import com.endurance.emdb.Service.UserService;
+import com.endurance.emdb.model.User;
+import com.endurance.emdb.service.UserService;
 import org.junit.Test;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.runner.RunWith;
@@ -15,8 +14,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.RequestBuilder;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import java.util.Collections;
 import java.util.List;

@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.endurance.emdb.service.UserServiceTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.28 sec - in com.endurance.emdb.service.UserServiceTest

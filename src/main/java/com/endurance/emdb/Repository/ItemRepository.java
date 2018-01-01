@@ -1,8 +1,6 @@
-package com.endurance.emdb.Repository;
+package com.endurance.emdb.repository;
 
-import com.endurance.emdb.Model.Item;
-import com.endurance.emdb.Model.ItemCast;
-import org.springframework.data.jpa.repository.Query;
+import com.endurance.emdb.model.Item;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

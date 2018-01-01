@@ -1,8 +1,7 @@
 package com.endurance.emdb.service;
 
-import com.endurance.emdb.Model.User;
-import com.endurance.emdb.Repository.UserRepository;
-import com.endurance.emdb.Service.UserService;
+import com.endurance.emdb.model.User;
+import com.endurance.emdb.repository.UserRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;

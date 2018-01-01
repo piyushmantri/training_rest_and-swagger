@@ -18,7 +18,7 @@ public class SwaggerConfiguration {
         return new Docket(DocumentationType.SWAGGER_2)
                 .groupName("EMDB")
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.endurance.emdb.Controller"))
+                .apis(RequestHandlerSelectors.basePackage("com.endurance.emdb.controller"))
                 .paths(PathSelectors.any())
                 .build()
                 .apiInfo(metaData());
