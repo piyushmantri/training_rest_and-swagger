@@ -1,7 +1,13 @@
 FROM maven as builder
 ADD ./ app/
 WORKDIR app/
-RUN mvn -s settings.xml clean package -DskipTests
+RUN mvn -s settings-nexus.xml clean package
+
+# SonarScanner Stage , Upload the coverage and test reports to the sonar server
+FROM eigdevstack/sonar-scanner
+COPY --from=builder app/ /usr/src/myapp
+WORKDIR /usr/src/myapp
+RUN sonar-scanner -Dsonar.host.url=https://sonarqube.dstack.tech
 
 FROM openjdk:8-jre-alpine
 MAINTAINER Author Name piyush.ma@endurance.com
