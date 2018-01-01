@@ -23,11 +23,11 @@ public class User {
     @Column(name = "last_name")
     private String lastName;
 
-    @Column(name = "username")
+    @Column(name = "username", unique = true)
     @NotNull
     private String username;
 
-    @Column(name = "email")
+    @Column(name = "email", unique = true)
     @NotNull
     private String emailId;
 
