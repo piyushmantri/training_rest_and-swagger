@@ -1,7 +1,7 @@
 FROM maven:3-alpine as builder
 ADD ./ app/
 WORKDIR app/
-RUN mvn -s settings-nexus.xml clean package
+RUN mvn -s settings-nexus.xml -X clean package
 
 # SonarScanner Stage , Upload the coverage and test reports to the sonar server
 FROM eigdevstack/sonar-scanner
