@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ItemCastController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">emdb1</a> &gt; <a href="index.source.html" class="el_package">com.endurance.emdb.controller</a> &gt; <span class="el_source">ItemCastController.java</span></div><h1>ItemCastController.java</h1><pre class="source lang-java linenums">package com.endurance.emdb.controller;
+
+import com.endurance.emdb.model.ItemCast;
+import com.endurance.emdb.service.ItemCastService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@Controller
+@RequestMapping(&quot;item_cast&quot;)
+<span class="nc" id="L16">public class ItemCastController {</span>
+    @Autowired
+    private ItemCastService itemCastService;
+
+    @GetMapping(value = &quot;&quot;, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity&lt;List&lt;ItemCast&gt;&gt; getAllItems(){
+<span class="nc" id="L22">        List&lt;ItemCast&gt; itemCasts = itemCastService.getAllItemCast();</span>
+<span class="nc" id="L23">        return new ResponseEntity&lt;&gt;(itemCasts, HttpStatus.OK);</span>
+    }
+
+    @GetMapping(value = &quot;{id}&quot;, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity&lt;ItemCast&gt; getItemCastByCastId(@PathVariable(&quot;id&quot;)int id){
+<span class="nc" id="L28">        ItemCast itemCast = itemCastService.getItemCastById(id);</span>
+<span class="nc" id="L29">        return new ResponseEntity&lt;&gt;(itemCast, HttpStatus.OK);</span>
+    }
+
+    @GetMapping(value = &quot;item/{id}&quot;, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity&lt;List&lt;ItemCast&gt;&gt; getItemCastByItemId(@PathVariable(&quot;id&quot;) int id){
+<span class="nc" id="L34">        List&lt;ItemCast&gt; itemCastList = itemCastService.getItemCastByItemId(id);</span>
+<span class="nc" id="L35">        return new ResponseEntity&lt;&gt;(itemCastList, HttpStatus.OK);</span>
+    }
+
+    @PostMapping(value = &quot;{itemId}&quot;, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity&lt;ItemCast&gt; createItemCast(@RequestBody ItemCast itemCast, @PathVariable(&quot;itemId&quot;) int itemId){
+<span class="nc" id="L40">        ItemCast createdItemCast = itemCastService.createItemCast(itemCast, itemId);</span>
+<span class="nc bnc" id="L41" title="All 2 branches missed.">        if (createdItemCast == null){</span>
+<span class="nc" id="L42">            return new ResponseEntity&lt;&gt;(HttpStatus.NOT_ACCEPTABLE);</span>
+        }
+<span class="nc" id="L44">        return new ResponseEntity&lt;&gt;(createdItemCast, HttpStatus.OK);</span>
+    }
+
+    @PutMapping(value = &quot;{item_id}&quot;, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity&lt;ItemCast&gt; updateItemCast(@RequestBody ItemCast itemCast, @PathVariable(&quot;item_id&quot;) int itemId){
+<span class="nc" id="L49">        ItemCast updatedItemCast = itemCastService.updateItemCast(itemCast, itemId);</span>
+<span class="nc bnc" id="L50" title="All 2 branches missed.">        if (updatedItemCast == null){</span>
+<span class="nc" id="L51">            return new ResponseEntity&lt;&gt;(HttpStatus.NOT_ACCEPTABLE);</span>
+        }
+<span class="nc" id="L53">        return new ResponseEntity&lt;&gt;(updatedItemCast, HttpStatus.OK);</span>
+    }
+
+    @DeleteMapping(value = &quot;{itemCastId}&quot;)
+    public ResponseEntity&lt;Void&gt; deleteItemCast(@PathVariable(&quot;id&quot;) int id){
+<span class="nc" id="L58">        itemCastService.deleteItemCast(id);</span>
+<span class="nc" id="L59">        return new ResponseEntity&lt;&gt;(HttpStatus.NO_CONTENT);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

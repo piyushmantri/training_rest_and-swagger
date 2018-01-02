@@ -1,4 +1,4 @@
-FROM maven as builder
+FROM maven:3-alpine as builder
 ADD ./ app/
 WORKDIR app/
 RUN mvn -s settings-nexus.xml clean package
