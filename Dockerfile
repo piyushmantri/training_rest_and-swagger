@@ -10,7 +10,6 @@ WORKDIR /usr/src/myapp
 RUN sonar-scanner -Dsonar.host.url=https://sonarqube.dstack.tech
 
 FROM openjdk:8-jre-alpine
-MAINTAINER Author Name piyush.ma@endurance.com
 VOLUME /tmp
 COPY --from=builder app/target/emdb-1.0-SNAPSHOT.jar emdb-1.0-SNAPSHOT.jar
 RUN sh -c 'touch emdb-1.0-SNAPSHOT.jar'
