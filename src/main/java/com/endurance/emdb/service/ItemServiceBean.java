@@ -44,8 +44,7 @@ public class ItemServiceBean implements ItemService {
         if (item.getId() != 0) {
             return null;
         }
-        Item createdItem = itemRepository.save(item);
-        return createdItem;
+        return itemRepository.save(item);
     }
 
     @Override

@@ -1,4 +1,4 @@
-package com.endurance.emdb.Swagger;
+package com.endurance.emdb.swagger;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,7 +14,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 public class SwaggerConfiguration {
     @Bean
-    public Docket Api() {
+    public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .groupName("EMDB")
                 .select()
@@ -28,7 +28,6 @@ public class SwaggerConfiguration {
         return new ApiInfoBuilder()
                 .title("EMDB")
                 .description("Endurance Spring Boot Practice App")
-                .contact("Piyush Mantri")
                 .build();
     }
 }

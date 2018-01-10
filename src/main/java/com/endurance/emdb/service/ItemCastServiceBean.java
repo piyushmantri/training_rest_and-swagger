@@ -48,8 +48,7 @@ public class ItemCastServiceBean implements ItemCastService{
         if (itemCast.getId() != 0){
             return null;
         }
-        ItemCast createdItemCast = create(itemCast, itemId);
-        return createdItemCast;
+        return create(itemCast, itemId);
     }
 
     private ItemCast create(ItemCast itemCast, int id){
@@ -70,8 +69,7 @@ public class ItemCastServiceBean implements ItemCastService{
         if (itemCast.getId() == 0){
             return null;
         }
-        ItemCast updatedItemCast = update(itemCast, itemId);
-        return updatedItemCast;
+        return update(itemCast, itemId);
     }
 
     private ItemCast update(ItemCast itemCast, int itemId){

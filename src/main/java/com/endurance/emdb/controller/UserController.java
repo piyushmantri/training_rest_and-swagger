@@ -37,7 +37,7 @@ public class UserController {
     @PostMapping(value = "", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<User> createUser(@RequestBody User user){
         User createdUser = userService.createUser(user);
-        return (createdUser == null) ? new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE) : new ResponseEntity<User>(createdUser, HttpStatus.CREATED) ;
+        return (createdUser == null) ? new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE) : new ResponseEntity<>(createdUser, HttpStatus.CREATED) ;
     }
 
     @PutMapping(value = "", produces = MediaType.APPLICATION_JSON_VALUE)

@@ -14,8 +14,8 @@ public interface ItemCastRepository extends CrudRepository<Item, Integer>{
     @Query("SELECT i FROM Item i WHERE id IN (SELECT item.id FROM ItemCast WHERE cast LIKE ':cast')")
     List<Item> findItemsByCastName(@Param("cast")String cast);
 
-    @Query("SELECT ic FROM ItemCast ic  WHERE item_id = :item_id")
-    List<ItemCast> findItemCastByItemId(@Param("item_id")int item_id);
+    @Query("SELECT ic FROM ItemCast ic  WHERE item_id = :itemId")
+    List<ItemCast> findItemCastByItemId(@Param("itemId")int itemId);
 
     @Query("SELECT ic FROM ItemCast ic")
     List<ItemCast> findAllItemCasts();

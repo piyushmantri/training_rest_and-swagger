@@ -36,9 +36,9 @@ public class ItemReviewAndRatingController {
         return new ResponseEntity<>(topXRatedItems, HttpStatus.OK);
     }
 
-    @GetMapping(value = "average_rating/{item_id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Double> getAverageRatingOnItem(@PathVariable("item_id") int item_id) {
-        Double averageRating = itemReviewAndRatingService.getAverageRatingOfItem(item_id);
+    @GetMapping(value = "average_rating/{itemId}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Double> getAverageRatingOnItem(@PathVariable("itemId") int itemId) {
+        Double averageRating = itemReviewAndRatingService.getAverageRatingOfItem(itemId);
         return new ResponseEntity<>(averageRating, HttpStatus.OK);
     }
 
@@ -49,8 +49,8 @@ public class ItemReviewAndRatingController {
     }
 
     @PutMapping(value = "{user_id}/{item_id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<ItemReviewAndRating> updateItem(@RequestBody ItemReviewAndRating itemReviewAndRating, @PathVariable("user_id") int user_id, @PathVariable("item_id") int item_id){
-        ItemReviewAndRating updatedItem = itemReviewAndRatingService.updateReviewAndRating(itemReviewAndRating, user_id, item_id);
+    public ResponseEntity<ItemReviewAndRating> updateItem(@RequestBody ItemReviewAndRating itemReviewAndRating, @PathVariable("user_id") int userId, @PathVariable("item_id") int itemId){
+        ItemReviewAndRating updatedItem = itemReviewAndRatingService.updateReviewAndRating(itemReviewAndRating, userId, itemId);
         return new ResponseEntity<>(updatedItem, HttpStatus.OK);
     }
 
